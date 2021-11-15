@@ -1,70 +1,27 @@
-# Getting Started with Create React App
+### নোড মঙ্গো CRUD অপারেশন চেকলিস্ট।
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+১. এক্সপ্রেস দিয়ে নোড এর একটা সার্ভার তৈরি করবে। (পাঁচটা স্টেপে)
 
-## Available Scripts
+২. ডাটাবেজ এর সাথে কানেক্ট করবে। চেক করে দেখবে ঠিক আছে কিনা। এইটা ঠান্ডা মাথায় করতে হবে।
 
-In the project directory, you can run:
+৩. একটা API তৈরি করবে। post এর API যেটা দিয়ে ডাটা তুমি ডাটাবেজে সেন্ড করতে পারবে। এইখানে cors এবং express.json কে middleware হিসেবে ইউজ করা গুরুত্বপূর্ণ।
 
-### `yarn start`
+৪. একটা সিম্পল React এপ্লিকেশন তৈরি করো। সেখানে রাউটার থাকবে। এবং একটা রাউট হবে addProducts নামে। সেই রাউট এ একটা ফর্ম থাকবে। সেটা সিম্পল html এর ফর্ম হতে পারে। react-bootstrap এর ফর্ম হতে পারে। বা react hook form হতে পারে। যেটাই হোক না কেন। সেখানে তিনটা ফিল্ড থাকবে। প্রোডাক্টের নাম, দাম এবং কোয়ান্টিটি। এরপর সেখান থেকে সাবমিট করলে সেই ডাটা সার্ভার হয়ে ডাটাবেজে গিয়ে সেইভ হবে। [ কি মজা !!!] অর্থাৎ তুমি CRUD এর C ইমপ্লিমেন্ট করে ফেলবে।
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+৫. তোমার রিএক্ট এপ্লিকেশনে আরেকটা রাউট তৈরি করো manageProducts । সেখানে তোমার ডাটাবেজে যে যে প্রোডাক্টস আছে সেগুলা তুমি লোড করে দেখাবে। অর্থাৎ তোমার একটা API ক্রিয়েট করতে হবে সার্ভারে। তারপর সেখান থেকে তুমি সব products এর ডাটা লোড করে UI তে দেখাবে। অর্থাৎ তুমি CRUD এর R ইমপ্লিমেন্ট করে ফেলবে।
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+৬. প্রত্যেকটা প্রোডাক্ট এ ডিলিট করার একটা বাটন থাকবে। সেখানে ডিলিট করলে সেই প্রোডাক্ট তোমার ডাটাবেজ থেকে ডিলিট হয়ে যাবে। অর্থাৎ এইটা করার জন্য তোমাকে delete এর একটা API তৈরি করতে হবে। এতে তোমার CRUD এর D ইমপ্লিমেন্ট করার প্রাকটিস হয়ে যাবে।
 
-### `yarn test`
+৭.তোমার রিএক্ট এপ্লিকেশনে আরেকটা রাউট তৈরি করো। যেখানে প্রোডাক্ট আপডেট করা হবে। তুমি manageProducts এ প্রত্যেকটা product এর সাথে একটা করে update নামের বাটন যোগ করো। তারপর সেই বাটনে ক্লিক করলে ডাইনামিকভাবে সেই প্রোডাক্ট update করার রাউট এ যাবে।
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+৮. এই রাউট এ ডাইনামিক id অনুসারে সেই প্রোডাক্ট এর ডাটা লোড করো। এইটার জন্য তোমাকে আরেকটা API তৈরি করতে হবে। যেখানে তুমি একটা id দিলে সেই প্রোডাক্ট এর ডাটা নিয়ে আসবে। তারপর সেই প্রোডাক্ট এর কিছু ডাটা দেখাবে।
 
-### `yarn build`
+৯. প্রোডাক্ট আপডেট করার রাউটে একটা ফর্ম তৈরি করো। এবং আগের ষ্টেপের লোড করা ডাটা এই ফর্মে দেখাও। এবং সেই ডাটা যাতে আপডেট করতে পারবে। সেই সিস্টেম সেট করো। যাতে প্রোডাক্ট আপডেট করতে পারো।
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+১০. প্রোডাক্ট আপডেট করো। অর্থাৎ আপডেট করা ডাটা সার্ভার হয়ে ডাটাবেজে সেইভ হয়ে যাবে। এবং তুমি ম্যানেজ প্রোডাক্টস রাউট এ গিয়েই আপডেট করা তথ্য দেখতে পারবে। এতে তোমার CRUD এর U এর কাজ করা প্রাকটিস হয়ে যাবে।
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### এক্সট্রা চ্যালেঞ্জ:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+১১. পারলে react hook form ইউজ করো
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+১২. চেষ্টা করো axios দিয়ে post রিকুয়েস্ট সেন্ড করতে। মজা পাবে।
