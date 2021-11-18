@@ -15,14 +15,25 @@ const UpdateProduct = () => {
       .get(`http://localhost:5000/product/${id}`)
       .then((res) => setProduct(res.data));
   }, [id]);
-  console.log(product);
 
   const handelUpdate = (e) => {
     e.preventDefault();
     const name = nameRef.current.value;
     const price = priceRef.current.value;
     const quantity = quantityRef.current.value;
-    console.log(name, price, quantity);
+    const updatedProduct = { name, price, quantity };
+    axios
+      .put(`http://localhost:5000/product/${id}`, updatedProduct)
+      .then((res) => {
+        if (res.status === 200) {
+          nameRef.current.value = '';
+          priceRef.current.value = '';
+          quantityRef.current.value = '';
+          alert('Product Updated In Our Database');
+        } else {
+          alert('Something Went wrong!!. Please try again later');
+        }
+      });
   };
 
   return (
