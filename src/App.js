@@ -14,9 +14,10 @@ function App() {
       <Header />
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/home' element={<Home />} />
         <Route path='/add-product' element={<AddProduct />} />
         <Route path='/manage-product' element={<ManageProduct />} />
-        <Route path='/update-product' element={<UpdateProduct />} />
+        <Route path='/update-product/:id' element={<UpdateProduct />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </>

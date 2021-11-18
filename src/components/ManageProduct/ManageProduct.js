@@ -1,9 +1,11 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Button, Card, Container, Spinner } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const ManageProduct = () => {
   const [products, setProducts] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -12,15 +14,18 @@ const ManageProduct = () => {
   }, []);
 
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:5000/product/${id}`).then((res) => {
-      if (res.status === 200) {
-        const newProducts = products.filter((pd) => pd._id !== id);
-        setProducts(newProducts);
-        alert('Product Deleted');
-      } else {
-        alert('Something Went wrong');
-      }
-    });
+    const wantDelete = window.confirm('Are You Sure?');
+    if (wantDelete) {
+      axios.delete(`http://localhost:5000/product/${id}`).then((res) => {
+        if (res.status === 200) {
+          const newProducts = products.filter((pd) => pd._id !== id);
+          setProducts(newProducts);
+          alert('Product Deleted');
+        } else {
+          alert('Something Went wrong');
+        }
+      });
+    }
   };
 
   return (
@@ -33,7 +38,11 @@ const ManageProduct = () => {
               <h3>Name: {pd.name}</h3>
               <h3>Price: {pd.price}</h3>
               <h3>Quantity: {pd.quantity}</h3>
-              <Button variant='success' className='mb-2'>
+              <Button
+                variant='success'
+                className='mb-2'
+                onClick={() => navigate(`/update-product/${pd._id}`)}
+              >
                 Update
               </Button>
               <Button variant='danger' onClick={() => handleDelete(pd._id)}>
